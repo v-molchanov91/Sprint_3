@@ -103,7 +103,7 @@ class OnlineSalesRegisterCollector:
 
     @staticmethod
     def get_telephone_number(telephone_number):
-        phone_str = str(tephone_number)
+        phone_str = str(telephone_number)
         if not phone_str.isdigit():
             raise ValueError("Необходимо ввести цифры")
 
