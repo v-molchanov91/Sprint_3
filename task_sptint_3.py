@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import datetime
 
 
@@ -101,13 +103,14 @@ class OnlineSalesRegisterCollector:
 
     @staticmethod
     def get_telephone_number(telephone_number):
-        if not telephone_number.isdigit():
+        phone_str = str(tephone_number)
+        if not phone_str.isdigit():
             raise ValueError("Необходимо ввести цифры")
 
-        if len(telephone_number) != 10:
+        if len(phone_str) != 10:
             raise ValueError('Необходимо ввести 10 цифр после "+7"')
 
-        return f"+7 {telephone_number}"
+        return f"+7 {phone_str}"
 
     @staticmethod
     def get_date_and_time():
@@ -128,3 +131,32 @@ class OnlineSalesRegisterCollector:
             date_and_time.append(f"{key}: {value}")
 
         return date_and_time
+
+
+if __name__ == "__main__":
+    register = OnlineSalesRegisterCollector()
+
+    # Добавляем товары
+    register.add_item_to_cheque("чипсы")
+    register.add_item_to_cheque("кола")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+    register.add_item_to_cheque("молоко")
+
+    print("Товары в чеке:", register.name_items)
+    print("Количество товаров:", register.number_items)
+    print("Общая сумма:", register.check_amount())
+    print("Налог 20%:", register.twenty_percent_tax_calculation())
+    print("Налог 10%:", register.ten_percent_tax_calculation())
+    print("Итого налог:", register.total_tax())
+
+    # Проверка телефона
+    print("Телефон:", register.get_telephone_number("9876543210"))
+
+    # Дата и время
+    print("Дата и время:", register.get_date_and_time())
