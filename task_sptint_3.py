@@ -131,32 +131,3 @@ class OnlineSalesRegisterCollector:
             date_and_time.append(f"{key}: {value}")
 
         return date_and_time
-
-
-if __name__ == "__main__":
-    register = OnlineSalesRegisterCollector()
-
-    # Добавляем товары
-    register.add_item_to_cheque("чипсы")
-    register.add_item_to_cheque("кола")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-    register.add_item_to_cheque("молоко")
-
-    print("Товары в чеке:", register.name_items)
-    print("Количество товаров:", register.number_items)
-    print("Общая сумма:", register.check_amount())
-    print("Налог 20%:", register.twenty_percent_tax_calculation())
-    print("Налог 10%:", register.ten_percent_tax_calculation())
-    print("Итого налог:", register.total_tax())
-
-    # Проверка телефона
-    print("Телефон:", register.get_telephone_number("9876543210"))
-
-    # Дата и время
-    print("Дата и время:", register.get_date_and_time())
